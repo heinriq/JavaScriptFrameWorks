@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title><%= pagina %></title>
+    </head>
+    <body>
+        <h1><%=pagina%></h1>
+        <ul>
+        <% for (let i = 0; i < produtos.length; i++) {%>
+            <li><%= produtos[i].item %></li>
+        <%}%>
+        </ul>
+    </body>
+</html>
