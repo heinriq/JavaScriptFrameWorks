@@ -5,8 +5,8 @@
     <body>
         <h1><%=pagina%></h1>
         <ul>
-        <% for (let i = 0; i < produtos.length; i++) {%>
-            <li><%= produtos[i].item %></li>
+        <% for (let produto of produtos) {%>
+            <li><%= produto.item %></li>
         <%}%>
         </ul>
     </body>
