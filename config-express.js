@@ -1,8 +1,13 @@
 module.exports = function(){
     const express = require('express')
     const app = express();
-    app.listen(3000, function(){
-        console.log(`Escutando a porta 3000`);
-    });
+    
+    //set
+    app.set('view engine', 'ejs')
+
+    //Rotas
+    require('./Routes/home')(app)
+    require('./Routes/produtos.js')(app)
+    
     return app;
 }
