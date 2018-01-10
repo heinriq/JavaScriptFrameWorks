@@ -12,6 +12,8 @@
     "nodemon": "^1.14.10"
   },
   "scripts": {
+    "prod": "node express_cdc.js",
+    "dev": "./node_modules/.bin/nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

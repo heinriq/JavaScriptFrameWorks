@@ -9,5 +9,10 @@
             <li><%= produto.item %></li>
         <%}%>
         </ul>
+
+        <select><% for(let produto of produtos) {%>
+            <option value="<%= produto.item %>"><%= produto.item %></option>
+            <%}%>
+        </select>
     </body>
 </html>
