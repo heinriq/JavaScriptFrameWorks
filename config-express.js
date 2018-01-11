@@ -5,6 +5,9 @@ module.exports = function(){
     //set
     app.set('view engine', 'ejs')
 
+    //Middleware
+    app.use(express.static('./public'))
+
     //Rotas
     require('./Routes/home')(app)
     require('./Routes/produtos.js')(app)
