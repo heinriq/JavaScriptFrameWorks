@@ -7,8 +7,7 @@ function connection(){
         user:'root',
         password: 'caelum',
         database: 'casaDoCodigo'
-    });
-    
+    }); 
 }
 
 module.exports = {connection:connection, mysql:mysql}
