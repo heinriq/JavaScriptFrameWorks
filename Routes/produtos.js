@@ -32,6 +32,7 @@ module.exports = function(app) {
         const produto = req.body
 
         produtosDAO.Insert(produto, function (err){
+            
             res.send(produto)
         });
     });
