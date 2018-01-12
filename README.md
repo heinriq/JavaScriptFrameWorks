@@ -1,20 +1,8 @@
 # Js
 
-Node Js começa em interpretar JavaScript
+Um trabalho de CRUD simples para Node, ainda não está terminado.
 
-interpratadores:
--V8 (C/C++)  google chrome
--SpiderMonkey - Moz
--Nitro - Safari
--Chakra - Explorer
+Planejamento de pushs diários.
 
-Node = v8 + coisas do S0
-
-browser 
-JS + DOM
-
-server 
-JS + SO
-
-magica node = libuv + v8
+Previsão para termino: sexta feira 11/01/2018
 
