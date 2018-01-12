@@ -7,8 +7,13 @@ module.exports = function(app) {
         const connection = app.Infra.configConnection()
         const produtosDAO = new ProdutosDAO(connection);
 
+        
         produtosDAO.Get((err, result) => {
-            res.render('produtos/lista', {pagina: pagina, produtos: result})
+            res.format({
+                html: () => res.render('produtos/lista', {pagina: pagina, produtos: result}),
+                json: () => res.send({ result })
+            })
+            
         });
     });
     

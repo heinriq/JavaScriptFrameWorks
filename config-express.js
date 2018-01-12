@@ -12,7 +12,7 @@ module.exports = function(){
     app.use(expressValidator());
     //Rotas
     loader('Routes').then('Infra').into(app)
-    console.log(app.Infra.configConnection())
+    console.log(app.Infra)
     //Middleware
     app.use(function(req,res,next){
         res.status(404).render(err).next()

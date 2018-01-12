@@ -14,7 +14,11 @@
     "nodemon": "^1.14.10"
   },
   "devDependencies": {
-    "nodemon": "^1.14.10"
+    "chai": "^4.1.2",
+    "database-cleaner": "^1.2.0",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.10",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "prod": "node express_cdc.js",
