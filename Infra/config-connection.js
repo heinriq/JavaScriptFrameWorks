@@ -10,4 +10,4 @@ function connection(){
     }); 
 }
 
-module.exports = {connection:connection, mysql:mysql}
+module.exports = () => connection

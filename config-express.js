@@ -2,15 +2,17 @@ module.exports = function(){
     const express = require('express')
     const app = express();
     const bodyParser = require('body-parser')
+    const expressValidator = require('express-validator')
+    const loader = require('express-load')
     //set
     app.set('view engine', 'ejs')
 
     app.use(express.static('./public'))
     app.use(bodyParser.urlencoded({extended:true}));
+    app.use(expressValidator());
     //Rotas
-    require('./Routes/home')(app)
-    require('./Routes/produtos.js')(app)
-    
+    loader('Routes').then('Infra').into(app)
+    console.log(app.Infra.configConnection())
     //Middleware
     app.use(function(req,res,next){
         res.status(404).render(err).next()

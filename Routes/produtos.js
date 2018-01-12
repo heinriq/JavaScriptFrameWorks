@@ -1,10 +1,10 @@
 module.exports = function(app) {
     const pagina = 'Produtos'
-    const conn = require('../config-connection.js')
+    const conn = app.Infra
     const ProdutosDAO = require('../DAO/produtos')
 
     app.get('/produtos', function(req,res){
-        const connection = conn.connection()
+        const connection = app.Infra.configConnection()
         const produtosDAO = new ProdutosDAO(connection);
 
         produtosDAO.Get((err, result) => {
@@ -28,13 +28,18 @@ module.exports = function(app) {
     app.post('/produtos', function(req, res){
         const connection = conn.connection()
         const produtosDAO = new ProdutosDAO(connection);
-        
-        const produto = req.body
+         
+        req.assert('titulo', 'Titulo e obrigatorio').notEmpty()
+        req.assert('preco', 'Preco precisa ser numerico').isFloat()
 
-        produtosDAO.Insert(produto, function (err){
-            
-            res.send(produto)
-        });
+        const errors = req.validationErrors()
+        if(!errors){
+            produtosDAO.Insert(req.body, function (err){
+                res.redirect('/produtos')
+            });
+        }else{
+            res.send(errors);
+        }
     });
 
     return app;
