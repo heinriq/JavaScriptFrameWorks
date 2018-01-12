@@ -4,8 +4,10 @@
   "description": "Node Js começa em interpretar JavaScript",
   "main": "express_cdc.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "express-validator": "^4.3.0",
     "mysql": "^2.15.0",
     "nodemon": "^1.14.10"
   },
