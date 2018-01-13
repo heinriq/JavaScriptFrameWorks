@@ -5,6 +5,7 @@
   "main": "express_cdc.js",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-load": "^1.1.16",
