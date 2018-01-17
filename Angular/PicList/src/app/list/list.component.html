@@ -3,9 +3,13 @@
     <h1 class="text-center">Pic List</h1>
   </header>
   <div class="container">
+    <div class="row">
+      <a [routerLink]="['cadastro']" class="btn btn-primary">Cadastro</a>
+    </div>
+    <div class="row">
       <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo.titulo}}>
           <photo path="{{photo.url}}" alt="{{photo.titulo}}"></photo>
       </panel>
+    </div>
   </div>
-  <app-cadastro></app-cadastro>
 </div>
