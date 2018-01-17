@@ -1,0 +1,11 @@
+<div style="text-align:center">
+  <header>
+    <h1 class="text-center">Pic List</h1>
+  </header>
+  <div class="container">
+      <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo.titulo}}>
+          <photo path="{{photo.url}}" alt="{{photo.titulo}}"></photo>
+      </panel>
+  </div>
+  <app-cadastro></app-cadastro>
+</div>
