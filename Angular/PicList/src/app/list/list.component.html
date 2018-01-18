@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo.titulo}}>
-          <photo path="{{photo.url}}" alt="{{photo.titulo}}"></photo>
+          <photo url="{{photo.url}}" titulo="{{photo.titulo}}"></photo>
       </panel>
     </div>
   </div>

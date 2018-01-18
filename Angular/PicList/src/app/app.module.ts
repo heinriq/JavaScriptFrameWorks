@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { roteamento } from "./routes/app.routes";
+import { roteamento } from './routes/app.routes';
 import { AppComponent } from './app.component';
-import { PhotoModule } from './photo/photo.module'
+import { PhotoModule } from './photo/photo.module';
 import { PanelModule } from './panel/panel.module';
 import { ListComponent } from './list/list.component';
-import { CadastroComponent } from './cadastro/cadastro.component'
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CadastroComponent } from './cadastro/cadastro.component'
     BrowserModule,
     PhotoModule,
     PanelModule,
+    FormsModule,
     HttpModule
   ],
   providers: [AppComponent],

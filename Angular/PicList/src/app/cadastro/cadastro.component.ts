@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotoComponent } from '../photo/photo.component';
+import { Http, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
+  photo = new PhotoComponent();
+  http: Http;
+  constructor(private _http: Http) {
+    this.http = _http;
+  }
 
   ngOnInit() {
   }
 
+  salvar(submit: Event) {
+    submit.preventDefault();
+    const cabecalho = new Headers();
+    cabecalho.append('Content-Type', 'application/json');
+
+    this.http
+    .post(
+      'http://localhost:3000/v1/fotos',
+      JSON.stringify(this.photo),
+      { headers: cabecalho}
+    ).subscribe(() => this.photo = new PhotoComponent());
+  }
 }

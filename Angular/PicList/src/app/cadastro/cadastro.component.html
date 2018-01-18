@@ -1,4 +1,36 @@
-<p>
-  cadastro works!
-  <a class="btn btn-primary" [routerLink]="['']">Voltar</a>
-</p>
+<div style="text-align:center">
+  <header>
+    <h1 class="text-center">Pic List</h1>
+  </header>
+  <section class="container">
+    <div class="row">
+      <form class="col-sm-6" (submit)="salvar($event)">       
+        
+        <div class="form-group">
+          <label for="">Titulo</label>
+          <input [(ngModel)]="photo.titulo" name="alt" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="">Url</label>
+          <input [(ngModel)]="photo.url" name="url" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="">Descrição</label>
+          <textarea [(ngModel)]="photo.descricao" name="describe" type="text" class="form-control"></textarea>
+        </div>
+
+        <a class="btn btn-primary" [routerLink]="['']">Voltar</a>
+        <button class="btn btn-default">Salvar</button>
+      </form>
+      <aside class="col-sm-4">
+        <panel class="col-md-2" titulo={{photo.titulo}}>
+          <photo url="{{photo.url}}" titulo="{{photo.titulo}}">
+            {{photo.descricao}}
+          </photo>
+      </panel>
+      </aside>
+    </div>
+  </section>
+</div>

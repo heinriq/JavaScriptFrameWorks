@@ -1,10 +1,13 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 
 @Component({
-    selector:'photo',
-    template:`<img class="img-responsive" [alt]="alt" src="{{path}}">`
+    // tslint:disable-next-line:component-selector
+    selector: 'photo',
+    templateUrl: `./photo.component.html`
 })
 export class PhotoComponent {
-    @Input() path
-    @Input() alt
-} 
+    @Input() url = '';
+    @Input() titulo = '';
+    @Input() descricao = '';
+}
+
