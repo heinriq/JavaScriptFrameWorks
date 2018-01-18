@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../photo/photo.component';
 import { Http, Headers } from '@angular/http';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,9 +11,9 @@ import { Http, Headers } from '@angular/http';
 export class CadastroComponent implements OnInit {
 
   photo = new PhotoComponent();
-  http: Http;
-  constructor(private _http: Http) {
-    this.http = _http;
+  mensagem: string;
+  classe = 'alert-success';
+  constructor(private service: PhotoService) {
   }
 
   ngOnInit() {
@@ -23,11 +24,16 @@ export class CadastroComponent implements OnInit {
     const cabecalho = new Headers();
     cabecalho.append('Content-Type', 'application/json');
 
-    this.http
-    .post(
-      'http://localhost:3000/v1/fotos',
-      JSON.stringify(this.photo),
-      { headers: cabecalho}
-    ).subscribe(() => this.photo = new PhotoComponent());
+    this.service
+    .creat(this.photo).subscribe(
+      () => {
+        this.photo = new PhotoComponent();
+        this.mensagem = `Foto ${this.photo.titulo} cadastrada com sucesso`;
+        this.classe = 'alert-success';
+      }, error => {
+        this.classe = 'alert-danger';
+        this.mensagem = `Foto não cadastrada`;
+      });
+      this.mensagem = '';
   }
 }

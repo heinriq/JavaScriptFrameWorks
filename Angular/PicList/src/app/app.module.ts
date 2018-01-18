@@ -9,6 +9,7 @@ import { PhotoModule } from './photo/photo.module';
 import { PanelModule } from './panel/panel.module';
 import { ListComponent } from './list/list.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { PhotoService } from './services/photo.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FormsModule,
     HttpModule
   ],
-  providers: [AppComponent],
+  providers: [AppComponent, PhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

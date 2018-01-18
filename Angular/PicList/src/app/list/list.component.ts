@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { PhotoComponent } from '../photo/photo.component';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-list',
@@ -12,12 +13,10 @@ export class ListComponent {
   title = 'your first spa';
   photoList: PhotoComponent[] = [];
 
-  constructor(private _http: Http) {
-    const returnGet = _http.get('http://localhost:3000/v1/fotos')
-      .subscribe((response) => {
-        this.photoList = response.json();
-        console.log(this.photoList);
-      }, (error) => console.log(error));
+  constructor(private servico: PhotoService) {
+    servico.read().subscribe(response => {
+      this.photoList = response;
+    },
+    error => console.log(error));
   }
-
 }

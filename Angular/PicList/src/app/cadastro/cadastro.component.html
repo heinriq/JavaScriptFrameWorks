@@ -4,6 +4,7 @@
   </header>
   <section class="container">
     <div class="row">
+      <p *ngIf="mensagem" class="{{classe}}"> {{mensagem}}</p>
       <form class="col-sm-6" (submit)="salvar($event)">       
         
         <div class="form-group">
