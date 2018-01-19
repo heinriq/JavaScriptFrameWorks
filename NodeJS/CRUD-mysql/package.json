@@ -1,0 +1,39 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Node Js começa em interpretar JavaScript",
+  "main": "express_cdc.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-load": "^1.1.16",
+    "express-loader": "0.0.2",
+    "express-validator": "^4.3.0",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.14.10"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "database-cleaner": "^1.2.0",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.10",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "prod": "node express_cdc.js",
+    "dev": "./node_modules/.bin/nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrifalves/Js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrifalves/Js/issues"
+  },
+  "homepage": "https://github.com/henrifalves/Js#readme"
+}
