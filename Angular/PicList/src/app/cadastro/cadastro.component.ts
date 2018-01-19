@@ -5,6 +5,10 @@ import { PhotoService } from '../services/photo.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { error } from 'selenium-webdriver';
+import { FormsModule } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,27 +20,28 @@ export class CadastroComponent implements OnInit {
   photo = new PhotoComponent();
   mensagem: string;
   classe = 'alert-success';
-  constructor(private service: PhotoService) {
+  formCadastro: FormGroup;
+
+  constructor(private service: PhotoService, formBuilder: FormBuilder) {
+    this.formCadastro = formBuilder.group({
+      titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      url: ['', Validators.required],
+      descricao: ''
+    });
   }
 
   ngOnInit() {
   }
 
-  salvar(event : Event) {
-    
+  salvar(event: Event) {
     event.preventDefault();
 
     console.log(this.photo);
 
     this.service.create(this.photo).subscribe(
-      response => { 
-        console.log(`response ${response}`); 
-      }, erro => console.log(erro),
-      () => {
-          this.mensagem = `Foto ${this.photo.titulo} cadastrada com sucesso`;
-          this.classe = 'alert-success';
-          this.photo = new PhotoComponent();
-      });
+      response => {
+        console.log(response);
+      }, erro => console.log(erro));
 
       this.mensagem = '';
   }

@@ -4,6 +4,7 @@ var api = {}
 
 api.adiciona = function(req, res) {
     var foto = req.body;
+    console.log(req.body)
     delete foto._id;
     db.insert(foto, function(err, newDoc) {
         if(err) return console.log(err);
