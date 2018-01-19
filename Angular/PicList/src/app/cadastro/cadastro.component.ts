@@ -22,11 +22,16 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {
   }
 
-  salvar(form: NgForm) {
+  salvar(event : Event) {
+    
+    event.preventDefault();
+
     console.log(this.photo);
 
     this.service.create(this.photo).subscribe(
-      response => {console.log(response); }, erro => console.log(erro),
+      response => { 
+        console.log(`response ${response}`); 
+      }, erro => console.log(erro),
       () => {
           this.mensagem = `Foto ${this.photo.titulo} cadastrada com sucesso`;
           this.classe = 'alert-success';

@@ -7,8 +7,8 @@ api.adiciona = function(req, res) {
     delete foto._id;
     db.insert(foto, function(err, newDoc) {
         if(err) return console.log(err);
-        console.log('Adicionado com sucesso: ' + newDoc._id);
-        res.json(newDoc._id);
+        console.log('Adicionado com sucesso: ' + newDoc);
+        res.json(newDoc);
     });  
 };
 
