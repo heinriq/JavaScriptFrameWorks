@@ -5,11 +5,11 @@
   <section class="container">
     <div class="row">
       <p *ngIf="mensagem" class="{{classe}}"> {{mensagem}}</p>
-      <form class="col-sm-6" (submit)="salvar($event)">       
+      <form  #f="ngForm" class="col-sm-6" (submit)="salvar($event)">       
         
         <div class="form-group">
           <label for="">Titulo</label>
-          <input [(ngModel)]="photo.titulo" name="alt" type="text" class="form-control">
+          <input [(ngModel)]="photo.titulo" name="titulo" type="text" class="form-control">
         </div>
 
         <div class="form-group">
@@ -19,11 +19,11 @@
 
         <div class="form-group">
           <label for="">Descrição</label>
-          <textarea [(ngModel)]="photo.descricao" name="describe" type="text" class="form-control"></textarea>
+          <textarea [(ngModel)]="photo.descricao" name="descricao" type="text" class="form-control"></textarea>
         </div>
 
         <a class="btn btn-primary" [routerLink]="['']">Voltar</a>
-        <button class="btn btn-default">Salvar</button>
+        <button type="submit" class="btn btn-default">Salvar</button>
       </form>
       <aside class="col-sm-4">
         <panel class="col-md-2" titulo={{photo.titulo}}>

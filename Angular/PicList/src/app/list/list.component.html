@@ -7,8 +7,11 @@
       <a [routerLink]="['cadastro']" class="btn btn-primary">Cadastro</a>
     </div>
     <div class="row">
-      <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo.titulo}}>
-          <photo url="{{photo.url}}" titulo="{{photo.titulo}}"></photo>
+      <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo._id}}>
+          <a [routerLink]="['cadastro/, photo._id']">
+            <photo url="{{photo.url}}" titulo="{{photo.titulo}}"></photo>
+          </a>
+          <button (click)="excluir(photo);" class="btn btn-danger">Remover</button>
       </panel>
     </div>
   </div>

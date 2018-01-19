@@ -12,11 +12,27 @@ export class ListComponent {
 
   title = 'your first spa';
   photoList: PhotoComponent[] = [];
+  mensagem = '';
 
   constructor(private servico: PhotoService) {
     servico.read().subscribe(response => {
       this.photoList = response;
     },
     error => console.log(error));
+  }
+
+  excluir(photo: PhotoComponent) {
+
+    this.servico.delete(photo).subscribe(
+      response => {
+          this.mensagem = `Foto ${photo.titulo} excluida`;
+        }, error => console.log(error),
+        () => {
+          this.photoList = this.photoList.filter(photoFilter => {
+            if (photoFilter !== photo) {
+              return photoFilter;
+            }
+          });
+    });
   }
 }

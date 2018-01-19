@@ -9,5 +9,6 @@ export class PhotoComponent {
     @Input() url = '';
     @Input() titulo = '';
     @Input() descricao = '';
+    _id = '';
 }
 

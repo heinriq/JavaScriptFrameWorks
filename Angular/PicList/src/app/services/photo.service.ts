@@ -15,22 +15,28 @@ export class PhotoService {
     constructor(private _http: Http) {
     }
 
-    read(): Observable<any> {
+    read(): Observable<PhotoComponent[]> {
+        this.headerObj.append('Content-Type', 'application/json');
         return this._http.get(this.url).map(res => res.json());
     }
 
-    creat(item: PhotoComponent): Observable<Response> {
+    create(item: PhotoComponent): Observable<Response> {
         this.headerObj.append('Content-Type', 'application/json');
-        return this._http.post(this.url, JSON.stringify(item), {headers: this.headerObj});
+        if (!item._id) {
+            return this._http.post(this.url, JSON.stringify(item), {headers: this.headerObj});
+        }
+        return this.update(item);
     }
 
-    readById() {
-
-    }
-    update() {
+    readById(photo: PhotoComponent): Observable<Response> {
+        return this._http.get(`${this.url}/${photo._id}`);
     }
 
-    delete() {
+    update(photo: PhotoComponent): Observable<Response> {
+        return this._http.put(`${this.url}/${photo._id}`, JSON.stringify(photo));
+    }
 
+    delete(photo: PhotoComponent): Observable<Response> {
+        return this._http.delete(`${this.url}/${photo._id}`);
     }
 }
