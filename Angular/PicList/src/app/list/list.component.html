@@ -2,12 +2,16 @@
   <header>
     <h1 class="text-center">Pic List</h1>
   </header>
+  
+  <section class="container">
+    <input #inputBusca (keyup)="0" class="form-control" type="text" />
+      <a class="btn btn-primary" [routerLink]="['/cadastro']">
+        Cadastrar Nova Foto
+      </a>
+  </section>
   <div class="container">
     <div class="row">
-      <a [routerLink]="['cadastro']" class="btn btn-primary">Cadastro</a>
-    </div>
-    <div class="row">
-      <panel class="col-md-2" *ngFor="let photo of photoList;" titulo={{photo._id}}>
+      <panel class="col-md-2" *ngFor="let photo of photoList | titleFilter:inputBusca.value" titulo={{photo.titulo}}>
           <a [routerLink]="['cadastro/, photo._id']">
             <photo url="{{photo.url}}" titulo="{{photo.titulo}}"></photo>
           </a>

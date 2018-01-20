@@ -10,9 +10,11 @@ import { Headers } from '@angular/http';
 export class PhotoService {
 
     url = 'http://localhost:3000/v1/fotos';
-    headerObj = new Headers();
+    headerObj: Headers;
 
     constructor(private _http: Http) {
+        this.headerObj = new Headers();
+        this.headerObj.append('Content-Type', 'application/json');
     }
 
     read(): Observable<PhotoComponent[]> {
@@ -21,7 +23,6 @@ export class PhotoService {
     }
 
     create(item: PhotoComponent): Observable<Response> {
-        this.headerObj.append('Content-Type', 'application/json');
         if (!item._id) {
             return this._http.post(this.url, JSON.stringify(item), {headers: this.headerObj});
         }
@@ -39,4 +40,8 @@ export class PhotoService {
     delete(photo: PhotoComponent): Observable<Response> {
         return this._http.delete(`${this.url}/${photo._id}`);
     }
+}
+
+class Message{
+    
 }

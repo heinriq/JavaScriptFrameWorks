@@ -23,6 +23,7 @@ export class CadastroComponent implements OnInit {
   formCadastro: FormGroup;
 
   constructor(private service: PhotoService, formBuilder: FormBuilder) {
+    this.photo = new PhotoComponent();
     this.formCadastro = formBuilder.group({
       titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       url: ['', Validators.required],
@@ -41,8 +42,7 @@ export class CadastroComponent implements OnInit {
     this.service.create(this.photo).subscribe(
       response => {
         console.log(response);
-      }, erro => console.log(erro));
-
-      this.mensagem = '';
+      }, erro => console.log(erro),
+      () =>  this.photo = new PhotoComponent());
   }
 }

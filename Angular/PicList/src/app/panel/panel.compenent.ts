@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+ 
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -6,6 +7,16 @@ import { Component, Input } from '@angular/core';
     templateUrl: './panel.compenent.html'
 })
 
-export class PanelComponent{
+export class PanelComponent implements OnInit{
     @Input() titulo = ''
+
+    ngOnInit(){
+        this.Cut()
+    }
+
+    Cut(){
+        if(this.titulo.length > 7){
+            this.titulo = `${this.titulo.substr(0,7)}`;
+        }  
+    }
 }
